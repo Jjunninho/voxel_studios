@@ -57,5 +57,7 @@ Projeto distribuído sob a licença MIT.
 ---
 
 **Explore o infinito volumétrico.**
-[Portal Voxel Studios](https://www.google.com/search?q=https://jjunninho.github.io/)
+[Portal Voxel Studios](https://jjunninho.github.io/voxel_studios/)
+
+
 
