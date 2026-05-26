@@ -1,0 +1,422 @@
+/* =============================================================================
+   VOXEL GENESIS - CAMERA PROJECTION CSS
+   Visual Terraria Dark Theme
+============================================================================= */
+
+/* ===== MODAL BASE ===== */
+.camera-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: fadeIn 0.3s ease;
+}
+
+.camera-modal.hidden {
+    display: none;
+}
+
+.camera-modal-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(4px);
+}
+
+.camera-modal-content {
+    position: relative;
+    width: 90%;
+    max-width: 1000px;
+    max-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    z-index: 1;
+    animation: slideUp 0.3s ease;
+}
+
+/* ===== HEADER ===== */
+.camera-modal-header {
+    background: linear-gradient(180deg, #2d304a 0%, #1e1f33 100%);
+    padding: 20px;
+    border-bottom: 2px solid var(--color-panel-border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.camera-modal-header h2 {
+    margin: 0;
+    color: var(--color-accent-gold);
+    font-size: 26px;
+    text-shadow: 2px 2px 0 #000;
+}
+
+.modal-close-btn {
+    background: var(--btn-red);
+    border: 2px solid rgba(0,0,0,0.3);
+    color: white;
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+    cursor: pointer;
+    border-radius: 2px;
+    box-shadow: 0 4px 0 rgba(0,0,0,0.4);
+    transition: all 0.1s;
+}
+
+.modal-close-btn:hover {
+    filter: brightness(1.2);
+}
+
+.modal-close-btn:active {
+    transform: translateY(4px);
+    box-shadow: 0 0 0 rgba(0,0,0,0.4);
+}
+
+/* ===== STEPS INDICATOR ===== */
+.camera-steps {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 15px;
+    background: rgba(0,0,0,0.3);
+    border-bottom: 1px solid var(--color-panel-border);
+}
+
+.step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    opacity: 0.5;
+    transition: all 0.3s;
+}
+
+.step.active {
+    opacity: 1;
+}
+
+.step.completed .step-number {
+    background: var(--btn-green);
+}
+
+.step-number {
+    width: 36px;
+    height: 36px;
+    background: #3d4062;
+    border: 2px solid #565978;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+    text-shadow: 1px 1px 0 #000;
+}
+
+.step.active .step-number {
+    background: var(--btn-blue);
+    border-color: var(--color-accent-gold);
+    box-shadow: 0 0 12px var(--color-accent-gold);
+}
+
+.step-label {
+    font-size: 14px;
+    color: #aaa;
+    text-shadow: 1px 1px 0 #000;
+}
+
+.step.active .step-label {
+    color: var(--color-accent-gold);
+}
+
+.step-arrow {
+    font-size: 24px;
+    color: #565978;
+    margin: 0 10px;
+}
+
+/* ===== BODY ===== */
+.camera-modal-body {
+    flex: 1;
+    overflow-y: auto;
+    padding: 20px;
+    background: rgba(0,0,0,0.2);
+}
+
+.camera-step-content {
+    display: none;
+}
+
+.camera-step-content.active {
+    display: block;
+}
+
+/* ===== UPLOAD ZONE ===== */
+.upload-zone {
+    border: 3px dashed #565978;
+    border-radius: 8px;
+    padding: 60px 40px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s;
+    background: rgba(0,0,0,0.2);
+}
+
+.upload-zone:hover,
+.upload-zone.drag-over {
+    border-color: var(--color-accent-gold);
+    background: rgba(255, 204, 0, 0.1);
+}
+
+.upload-icon {
+    font-size: 80px;
+    margin-bottom: 20px;
+    filter: drop-shadow(2px 2px 0 rgba(0,0,0,0.5));
+}
+
+.upload-zone h3 {
+    color: white;
+    margin: 10px 0;
+    font-size: 22px;
+}
+
+.upload-zone p {
+    color: #aaa;
+    margin: 8px 0;
+    font-size: 16px;
+}
+
+.upload-tip {
+    color: var(--color-accent-gold) !important;
+    font-style: italic;
+}
+
+/* ===== INSTRUCTIONS PANEL ===== */
+.instructions-panel {
+    background: linear-gradient(180deg, #2d304a 0%, #1e1f33 100%);
+    border: 2px solid #565978;
+    border-radius: 4px;
+    padding: 15px;
+    margin-bottom: 15px;
+}
+
+.instructions-panel strong {
+    color: var(--color-accent-gold);
+}
+
+.instructions-panel ol {
+    margin: 10px 0 0 20px;
+    padding: 0;
+    color: #ddd;
+}
+
+.instructions-panel li {
+    margin: 8px 0;
+    font-size: 16px;
+}
+
+/* ===== CANVAS CONTAINER ===== */
+.canvas-container {
+    border: 3px solid #565978;
+    border-radius: 4px;
+    background: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 15px 0;
+    overflow: auto;
+}
+
+#sourceCanvas {
+    display: block;
+    cursor: crosshair;
+    max-width: 100%;
+    max-height: 500px;
+}
+
+/* ===== POINTS STATUS ===== */
+.points-status {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    margin: 15px 0;
+}
+
+.point-item {
+    background: linear-gradient(180deg, #3d4062 0%, #2d304a 100%);
+    border: 2px solid #1e1f33;
+    border-radius: 4px;
+    padding: 12px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: all 0.2s;
+}
+
+.point-item.completed {
+    border-color: var(--btn-green);
+    background: linear-gradient(180deg, #388e3c 0%, #2d5a2e 100%);
+}
+
+.point-dot {
+    font-size: 24px;
+    filter: drop-shadow(1px 1px 0 #000);
+}
+
+.point-item[data-point="1"] .point-dot { color: #ff4444; }
+.point-item[data-point="2"] .point-dot { color: #44ff44; }
+.point-item[data-point="3"] .point-dot { color: #4444ff; }
+.point-item[data-point="4"] .point-dot { color: #ffff44; }
+
+.point-label {
+    flex: 1;
+    color: #ddd;
+    font-size: 15px;
+}
+
+.point-coords {
+    color: var(--color-accent-gold);
+    font-family: monospace;
+    font-size: 14px;
+}
+
+/* ===== POINTS CONTROLS ===== */
+.points-controls {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 15px;
+}
+
+/* ===== PREVIEW COMPARISON ===== */
+.preview-comparison {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 20px;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.preview-before,
+.preview-after {
+    text-align: center;
+}
+
+.preview-before h4,
+.preview-after h4 {
+    color: var(--color-accent-gold);
+    margin-bottom: 10px;
+    font-size: 18px;
+}
+
+.preview-before canvas,
+.preview-after canvas {
+    border: 3px solid #565978;
+    border-radius: 4px;
+    background: #000;
+    display: block;
+    margin: 0 auto;
+}
+
+.preview-arrow {
+    font-size: 36px;
+    color: var(--color-accent-gold);
+    filter: drop-shadow(2px 2px 0 #000);
+}
+
+.preview-info {
+    background: linear-gradient(180deg, #2d304a 0%, #1e1f33 100%);
+    border: 2px solid var(--btn-green);
+    border-radius: 4px;
+    padding: 15px;
+}
+
+.preview-info p {
+    color: #ddd;
+    margin: 8px 0;
+    font-size: 15px;
+}
+
+/* ===== FOOTER ===== */
+.camera-modal-footer {
+    background: rgba(0,0,0,0.3);
+    padding: 15px 20px;
+    border-top: 2px solid var(--color-panel-border);
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.footer-spacer {
+    flex: 1;
+}
+
+/* ===== LOADING ===== */
+.loading {
+    text-align: center;
+    padding: 100px 20px;
+    font-size: 24px;
+    color: var(--color-accent-gold);
+}
+
+/* ===== ANIMATIONS ===== */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* ===== RESPONSIVIDADE ===== */
+@media (max-width: 768px) {
+    .camera-modal-content {
+        width: 95%;
+        max-height: 95vh;
+    }
+    
+    .camera-steps {
+        flex-direction: column;
+        gap: 5px;
+    }
+    
+    .step-arrow {
+        transform: rotate(90deg);
+        margin: 5px 0;
+    }
+    
+    .points-status {
+        grid-template-columns: 1fr;
+    }
+    
+    .preview-comparison {
+        grid-template-columns: 1fr;
+    }
+    
+    .preview-arrow {
+        transform: rotate(90deg);
+    }
+}

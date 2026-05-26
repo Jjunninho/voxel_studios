@@ -1,0 +1,40 @@
+{
+  "blocks": [
+    {
+      "position": { "x": 0, "y": 0, "z": 0 },
+      "color": "#D2B48C",
+      "type": "cube",
+      "scale": 4
+    },
+    {
+      "position": { "x": 0, "y": 2, "z": 0 },
+      "color": "#D2B48C",
+      "type": "cube",
+      "scale": 4
+    },
+    {
+      "position": { "x": 0, "y": 4, "z": 0 },
+      "color": "#8B4513",
+      "type": "cone",
+      "scale": 4.5
+    },
+    {
+      "position": { "x": 0, "y": 1, "z": 2.1 },
+      "color": "#654321",
+      "type": "cube",
+      "scale": 1
+    },
+    {
+      "position": { "x": -1.2, "y": 2, "z": 2.1 },
+      "color": "#87CEEB",
+      "type": "cube",
+      "scale": 0.8
+    },
+    {
+      "position": { "x": 1.2, "y": 2, "z": 2.1 },
+      "color": "#87CEEB",
+      "type": "cube",
+      "scale": 0.8
+    }
+  ]
+}

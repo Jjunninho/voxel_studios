@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Depth Lab v3.0 - Procedural</title>
+<link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/depth_lab.css">
+</head>
+<body>
+
+<div class="sidebar">
+  <div class="logo">
+    <h1>🔥 DEPTH LAB v3.0</h1>
+    <div class="sub">Motor de Algoritmos Procedurais Clássicos</div>
+  </div>
+
+  <div class="card">
+    <div class="ct">📁 Entrada</div>
+    <div class="file-wrap"><button class="btn cyan">📂 Carregar Imagem</button>
+      <input type="file" id="imgInput" accept="image/*"></div>
+    <div id="fileInfo" style="font-size:13px;color:var(--dim);margin-top:3px;">Nenhum arquivo</div>
+  </div>
+
+  <div class="card">
+    <div class="ct">🔍 Resolução</div>
+    <div style="display:flex;gap:5px;align-items:center">
+      <input type="number" id="resW" value="64" min="2" max="512" oninput="triggerUpdate()">
+      <span style="color:var(--dim);font-size:20px">×</span>
+      <input type="number" id="resH" value="64" min="2" max="512" oninput="triggerUpdate()">
+    </div>
+    <button class="btn primary sm" style="margin-top:4px" onclick="autoDetect()">🔮 Auto-Detect Pixel</button>
+    <div id="origRes" style="font-size:12px;color:var(--dim);text-align:center;margin-top:2px"></div>
+  </div>
+
+  <div class="card">
+    <div class="ct">🎨 Remoção de Fundo</div>
+    <select id="bgMode" onchange="triggerUpdate()">
+      <option value="auto">🔄 Auto (cor do canto)</option>
+      <option value="bright">☀️ Remover claros</option>
+      <option value="none">❌ Sem remoção</option>
+    </select>
+    <div class="rr"><span style="font-size:13px;color:var(--dim)">Thresh:</span>
+      <input type="range" id="bgTh" min="5" max="150" value="50" oninput="triggerUpdate()">
+      <span class="rv" id="bgThV">50</span></div>
+  </div>
+
+  <div class="card">
+    <div class="ct">🧪 Algoritmo de Profundidade</div>
+    <div class="ag" id="algoGrid"></div>
+    <div class="adesc" id="algoDesc">Selecione um algoritmo.</div>
+  </div>
+
+  <div class="card" id="paramsCard">
+    <div class="ct">⚙️ Parâmetros</div>
+    <div id="paramsWrap"></div>
+  </div>
+
+  <div class="card">
+    <div class="ct">🔀 Blend (Mix de Algoritmos)</div>
+    <div class="blend-sel"><span class="tag" style="color:var(--cyan)">A</span><select id="blA" onchange="triggerUpdate()"></select></div>
+    <div class="blend-sel"><span class="tag" style="color:var(--accent2)">B</span><select id="blB" onchange="triggerUpdate()"></select></div>
+    <div class="rr" style="margin-top:4px">
+      <span style="font-size:13px;color:var(--cyan)">A</span>
+      <input type="range" id="blW" min="0" max="100" value="100" oninput="triggerUpdate()">
+      <span style="font-size:13px;color:var(--accent2)">B</span>
+    </div>
+    <div class="bp" id="blPct"><span class="a">100% A</span> / <span class="b">0% B</span></div>
+  </div>
+
+  <div class="card">
+    <div class="ct">📐 Voxelização</div>
+    <label>Profundidade máxima (camadas):</label>
+    <input type="number" id="maxD" value="8" min="1" max="60" oninput="triggerUpdate()">
+    <label>Tamanho do bloco:</label>
+    <input type="number" id="blkSz" value="1" min="0.1" max="5" step="0.1" oninput="triggerUpdate()">
+    <label>Orientação:</label>
+    <select id="orient" onchange="triggerUpdate()">
+      <option value="upright">🧱 De pé (Parede — XY)</option>
+      <option value="flat">📐 Deitado (Chão — XZ)</option>
+    </select>
+    <label>Colormap 3D:</label>
+    <select id="cmap" onchange="triggerUpdate()">
+      <option value="original">🎨 Original (cor do pixel)</option>
+      <option value="heat">🌊 Heat Map</option>
+      <option value="viridis">🟢 Viridis</option>
+      <option value="mono">⬜ Mono</option>
+    </select>
+    <div class="cstrip" id="cmapStrip"></div>
+  </div>
+
+  <div class="card">
+    <div class="ct">💾 Exportação</div>
+    <div class="stats">
+      <div class="stat" id="statB"><span class="n">0</span><span class="l">blocos</span></div>
+      <div class="stat"><span class="n" id="statSz">0 KB</span><span class="l">JSON est.</span></div>
+    </div>
+    <button class="btn green" style="margin-top:5px" id="expBtn" onclick="exportJSON()" disabled>💾 EXPORTAR JSON</button>
+    <div id="status"></div>
+  </div>
+
+  <div class="footer">
+    Seeds Aura TCC · FATEC Bragança Paulista<br>
+    Motor de Inferência Procedural Local
+  </div>
+</div>
+
+<div class="main">
+  <div class="pstrip">
+    <div class="pbox"><div class="pl">📷 Original</div><canvas id="cvO" width="180" height="180"></canvas></div>
+    <div class="pbox"><div class="pl">🌊 Heightmap</div><canvas id="cvH" width="180" height="180"></canvas></div>
+  </div>
+  <div class="vp" id="viewport">
+    <canvas id="c3d"></canvas>
+    <div class="hint">🖱️ Drag: Rotacionar · Scroll: Zoom · Shift+Drag: Mover</div>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script type="module" src="depth_lab/js/main.js"></script>
+</body>
+</html>

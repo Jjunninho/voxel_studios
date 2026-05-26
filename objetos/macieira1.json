@@ -1,0 +1,16 @@
+{
+  "blocks": [
+    {"position": {"x": 0, "y": 0.5, "z": 0}, "color": "#8B4513", "type": "cylinder", "scale": 1.1},
+    {"position": {"x": 0, "y": 1.7, "z": 0}, "color": "#8B4513", "type": "cylinder", "scale": 1.0},
+    {"position": {"x": 0, "y": 2.9, "z": 0}, "color": "#8B4513", "type": "cylinder", "scale": 0.8},
+    {"position": {"x": 0, "y": 4.0, "z": 0}, "color": "#006400", "type": "cone", "scale": 2.5},
+    {"position": {"x": 0, "y": 5.2, "z": 0}, "color": "#228B22", "type": "cone", "scale": 2.0},
+    {"position": {"x": 0, "y": 6.3, "z": 0}, "color": "#90EE90", "type": "cone", "scale": 1.5},
+    {"position": {"x": 0.6, "y": 4.5, "z": 0.3}, "color": "#FF4500", "type": "sphere", "scale": 0.4},
+    {"position": {"x": -0.4, "y": 4.8, "z": -0.2}, "color": "#FF4500", "type": "sphere", "scale": 0.4},
+    {"position": {"x": 0.3, "y": 5.5, "z": 0.5}, "color": "#FF6347", "type": "sphere", "scale": 0.3},
+    {"position": {"x": -0.5, "y": 5.7, "z": -0.4}, "color": "#FF6347", "type": "sphere", "scale": 0.3},
+    {"position": {"x": 0.2, "y": 6.0, "z": 0.2}, "color": "#FFD700", "type": "sphere", "scale": 0.35},
+    {"position": {"x": -0.3, "y": 6.2, "z": 0.1}, "color": "#FFD700", "type": "sphere", "scale": 0.35}
+  ]
+}

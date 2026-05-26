@@ -1,0 +1,9 @@
+{
+  "blocks": [
+    {"position": {"x": 0, "y": 0.5, "z": 0}, "color": "#8B4513", "type": "cylinder", "scale": 1},
+    {"position": {"x": 0, "y": 1.5, "z": 0}, "color": "#8B4513", "type": "cylinder", "scale": 1},
+    {"position": {"x": 0, "y": 2.5, "z": 0}, "color": "#228B22", "type": "cone", "scale": 3},
+    {"position": {"x": 0, "y": 3.5, "z": 0}, "color": "#32CD32", "type": "cone", "scale": 2.5},
+    {"position": {"x": 0, "y": 4.5, "z": 0}, "color": "#7CFC00", "type": "cone", "scale": 1.5}
+  ]
+}

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🔮 Voxel Forge — Procedural Generator v2.0</title>
+<link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/generator.css">
+</head>
+<body>
+
+<div class="sidebar">
+  <div class="logo">
+    <h1>🔮 VOXEL FORGE</h1>
+    <div class="sub">Gerador Procedural v2.0 Enhanced</div>
+  </div>
+
+  <div class="card">
+    <div class="ct">📜 Receita Genética</div>
+    <div class="file-wrap">
+      <button class="btn cyan">📂 Carregar Recipes.json</button>
+      <input type="file" id="recipeInput" accept=".json">
+    </div>
+    <div id="recipeInfo" style="margin-top:5px;font-size:13px;color:var(--dim)">Nenhuma receita carregada</div>
+  </div>
+
+  <div class="card" id="classCard" style="display:none">
+    <div class="ct">🏷️ Classe do Objeto</div>
+    <select id="recipeSel" onchange="window.selectRecipe()"></select>
+  </div>
+
+  <div class="card">
+    <div class="ct">🎛️ Parâmetros de Mutação</div>
+    
+    <label>🎲 Semente (Seed):</label>
+    <div style="display:flex;gap:5px">
+      <input type="text" id="seedIn" value="random" style="width:100%">
+      <button class="btn sm" onclick="window.rndSeed()">🎲</button>
+    </div>
+
+    <label>🌊 Nível de Caos (Ruído):</label>
+    <div class="rr">
+      <input type="range" id="chaosLvl" min="0" max="2" step="0.1" value="1" oninput="updV('chaosLvl')">
+      <span class="rv" id="chaosLvl_v">1.0</span>
+    </div>
+
+    <label>🎨 Variação de Cor:</label>
+    <div class="rr">
+      <input type="range" id="colorVar" min="0" max="100" value="20" oninput="updV('colorVar')">
+      <span class="rv" id="colorVar_v">20%</span>
+    </div>
+
+    <label>📏 Escala Global:</label>
+    <div class="rr">
+      <input type="range" id="scaleG" min="0.1" max="2" step="0.1" value="1" oninput="updV('scaleG')">
+      <span class="rv" id="scaleG_v">1.0</span>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="ct">🆕 Mutações Avançadas</div>
+    
+    <label>🧱 Densidade (Preenchimento):</label>
+    <div class="rr">
+      <input type="range" id="density" min="10" max="100" value="100" oninput="updV('density')">
+      <span class="rv" id="density_v">100%</span>
+    </div>
+
+    <label>📐 Multiplicador de Altura:</label>
+    <div class="rr">
+      <input type="range" id="heightMult" min="0.1" max="3" step="0.1" value="1" oninput="updV('heightMult')">
+      <span class="rv" id="heightMult_v">1.0</span>
+    </div>
+
+    <label>🌪️ Erosão (Desgaste):</label>
+    <div class="rr">
+      <input type="range" id="erosion" min="0" max="80" value="0" oninput="updV('erosion')">
+      <span class="rv" id="erosion_v">0%</span>
+    </div>
+
+    <label>↔️ Ruído Horizontal (Deslocamento):</label>
+    <div class="rr">
+      <input type="range" id="hNoise" min="0" max="100" value="0" oninput="updV('hNoise')">
+      <span class="rv" id="hNoise_v">0%</span>
+    </div>
+
+    <label>↕️ Alongamento Vertical:</label>
+    <div class="rr">
+      <input type="range" id="vStretch" min="0.5" max="3" step="0.1" value="1" oninput="updV('vStretch')">
+      <span class="rv" id="vStretch_v">1.0</span>
+    </div>
+  </div>
+
+  <div class="card">
+    <button class="btn green lg" id="genBtn" onclick="window.generate()" disabled>✨ GERAR NOVA INSTÂNCIA</button>
+    <div class="stats" id="genStats">Aguarando...</div>
+  </div>
+
+  <div class="card">
+    <div class="ct">💾 Salvar Resultado</div>
+    <button class="btn primary" onclick="window.exportOBJ()" id="expBtn" disabled>📦 Exportar Voxel JSON</button>
+  </div>
+
+</div>
+
+<div class="main">
+  <div id="viewport">
+    <canvas id="c3d"></canvas>
+    <div class="hint">🖱️ Drag: Rotacionar · Scroll: Zoom</div>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/simplex-noise/2.4.0/simplex-noise.min.js"></script>
+<script type="module" src="/generator/js/generator.js"></script>
+
+<script>
+  // Helper simples para UI
+  function updV(id){ 
+    const val = document.getElementById(id).value;
+    const suffix = id.includes('Var') || id.includes('density') || id.includes('erosion') || id.includes('hNoise') ? '%' : '';
+    document.getElementById(id+'_v').textContent = val + suffix;
+  }
+  window.rndSeed = function(){ document.getElementById('seedIn').value = Math.floor(Math.random()*999999).toString(16); }
+</script>
+</body>
+</html>

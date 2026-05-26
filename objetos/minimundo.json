@@ -1,0 +1,88 @@
+{
+"blocks": [
+{
+"position": {"x": 0, "y": 1.25, "z": 0},
+"color": "#8B4513",
+"type": "cube",
+"scale": {"x": 1.2, "y": 1.5, "z": 2.0},
+"rotation": {"x": 0, "y": 0, "z": 0}
+},
+{
+"position": {"x": 0, "y": 2.5, "z": -0.8},
+"color": "#8B4513",
+"type": "sphere",
+"scale": {"x": 1.0, "y": 1.0, "z": 0.9},
+"rotation": {"x": 0, "y": 0, "z": 0}
+},
+{
+"position": {"x": -0.6, "y": 3.0, "z": -1.0},
+"color": "#8B4513",
+"type": "cone",
+"scale": {"x": 0.3, "y": 0.4, "z": 0.3},
+"rotation": {"x": 1.57, "y": 0, "z": 0}
+},
+{
+"position": {"x": 0.6, "y": 3.0, "z": -1.0},
+"color": "#8B4513",
+"type": "cone",
+"scale": {"x": 0.3, "y": 0.4, "z": 0.3},
+"rotation": {"x": 1.57, "y": 0, "z": 0}
+},
+{
+"position": {"x": 0, "y": 1.0, "z": 1.8},
+"color": "#8B4513",
+"type": "cylinder",
+"scale": {"x": 0.2, "y": 1.6, "z": 0.2},
+"rotation": {"x": 0, "y": 0, "z": 0}
+},
+{
+"position": {"x": -0.8, "y": 0.75, "z": 0.6},
+"color": "#8B4513",
+"type": "capsule",
+"scale": {"x": 0.25, "y": 1.0, "z": 0.25},
+"rotation": {"x": 0, "y": 0, "z": -0.6}
+},
+{
+"position": {"x": 0.8, "y": 0.75, "z": 0.6},
+"color": "#8B4513",
+"type": "capsule",
+"scale": {"x": 0.25, "y": 1.0, "z": 0.25},
+"rotation": {"x": 0, "y": 0, "z": 0.6}
+},
+{
+"position": {"x": -0.3, "y": 2.7, "z": -1.1},
+"color": "#FFFFFF",
+"type": "sphere",
+"scale": {"x": 0.15, "y": 0.15, "z": 0.15},
+"rotation": {"x": 0, "y": 0, "z": 0}
+},
+{
+"position": {"x": 0.3, "y": 2.7, "z": -1.1},
+"color": "#FFFFFF",
+"type": "sphere",
+"scale": {"x": 0.15, "y": 0.15, "z": 0.15},
+"rotation": {"x": 0, "y": 0, "z": 0}
+},
+{
+"position": {"x": -0.3, "y": 2.72, "z": -1.12},
+"color": "#000000",
+"type": "sphere",
+"scale": {"x": 0.06, "y": 0.06, "z": 0.06},
+"rotation": {"x": 0, "y": 0, "z": 0}
+},
+{
+"position": {"x": 0.3, "y": 2.72, "z": -1.12},
+"color": "#000000",
+"type": "sphere",
+"scale": {"x": 0.06, "y": 0.06, "z": 0.06},
+"rotation": {"x": 0, "y": 0, "z": 0}
+},
+{
+"position": {"x": 0, "y": 2.4, "z": -1.2},
+"color": "#FF69B4",
+"type": "sphere",
+"scale": {"x": 0.08, "y": 0.05, "z": 0.08},
+"rotation": {"x": 0, "y": 0, "z": 0}
+}
+]
+}

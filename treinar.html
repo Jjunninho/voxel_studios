@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🧠 Voxel Critic v2.0 — AI Clustering</title>
+<link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/treinar.css">
+</head>
+<body>
+
+<!-- ━━━━ HEADER ━━━━ -->
+<div class="hdr">
+  <h1>🧠 VOXEL CRITIC v2.0</h1>
+  <div class="sub">
+    IA Real: K-Means Clustering<span class="pipe">|</span>
+    Receitas por Classe Descoberta<span class="pipe">|</span>
+    Aprendizado Verdadeiro
+  </div>
+</div>
+
+<!-- ━━━━ LAYOUT ━━━━ -->
+<div class="layout">
+
+  <!-- Preview + Rating -->
+  <div class="prev-sec">
+    <div class="prev-wrap" id="prevWrap">
+      <canvas id="mainCanvas"></canvas>
+      <div class="empty" id="emptyEl">
+        <div class="ico">📂</div>
+        <div class="txt">Importe JSON(s) do Depth Inference Lab</div>
+        <div class="txt2">ou arraste &amp; solte aqui · Teclado: ← → navega · 1–5 avalia</div>
+      </div>
+      <div class="hint3d" id="hintEl">🖱️ Drag: Rotacionar · Scroll: Zoom</div>
+    </div>
+
+    <div class="rbar">
+      <div class="oinfo" id="oInfo"><span class="oname">—</span></div>
+      <div class="swrap" id="swrap">
+        <span class="star" data-r="1">★</span>
+        <span class="star" data-r="2">★</span>
+        <span class="star" data-r="3">★</span>
+        <span class="star" data-r="4">★</span>
+        <span class="star" data-r="5">★</span>
+      </div>
+      <div class="nvwrap">
+        <button class="nb" id="btnPrev">◀</button>
+        <span class="nc" id="ncnt">—</span>
+        <button class="nb" id="btnNext">▶</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- RIGHT PANEL: Clustering + Thumbnails -->
+  <div class="right-panel">
+    <!-- Clustering Controls -->
+    <div class="ai-card">
+      <div class="ai-hdr">🤖 Clustering Automático</div>
+      <div class="ai-body">
+        <label class="ai-label">Número de Classes:</label>
+        <div class="ai-slider">
+          <input type="range" id="numClusters" min="2" max="10" value="5">
+          <span id="numClustersVal">5</span>
+        </div>
+        <button class="btn-ai" id="clusterBtn">🧠 Descobrir Classes</button>
+        <div class="ai-hint">Agrupa objetos similares automaticamente usando K-Means</div>
+      </div>
+    </div>
+
+    <!-- Cluster Display -->
+    <div class="cluster-section">
+      <div class="cls-hdr">🏷️ Classes Descobertas</div>
+      <div class="cls-scr" id="clusterPanel">
+        <div class="cls-empty">Execute o clustering para descobrir classes</div>
+      </div>
+    </div>
+
+    <!-- Thumbnails -->
+    <div class="tp">
+      <div class="tp-hdr">📦 Objetos Importados</div>
+      <div class="tp-scr" id="tpScr"></div>
+    </div>
+  </div>
+
+</div>
+
+<!-- ━━━━ TOOLBAR ━━━━ -->
+<div class="toolbar">
+  <div class="fwrap">
+    <button class="btn b-imp">📂 Import JSON(s)</button>
+    <input type="file" id="fInput" accept=".json" multiple>
+  </div>
+  <button class="btn b-rec" id="expRBtn" disabled>🧬 Export Receitas por Classe</button>
+  <button class="btn b-dat" id="expDBtn" disabled>📦 Export Dataset</button>
+  <span id="stMsg"></span>
+  <div class="tstats">
+    <span><span class="lbl">Import</span><b id="sI">0</b></span>
+    <span><span class="lbl">Avaliados</span><b id="sR">0</b></span>
+    <span><span class="lbl">Receitas ≥3★</span><b id="sRc">0</b></span>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script type="module" src="treinar/js/treinar.js"></script>
+</body>
+</html>

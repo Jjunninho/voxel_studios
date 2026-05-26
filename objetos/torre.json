@@ -1,0 +1,12 @@
+{
+  "blocks": [
+    {"position": {"x": 0, "y": 0.5, "z": 0}, "color": "#8B4513", "type": "cylinder", "scale": 1.5},
+    {"position": {"x": 0, "y": 1.8, "z": 0}, "color": "#8B4513", "type": "cylinder", "scale": 1.3},
+    {"position": {"x": 0, "y": 3.1, "z": 0}, "color": "#8B4513", "type": "cylinder", "scale": 1.0},
+    {"position": {"x": 0, "y": 4.0, "z": 0}, "color": "#006400", "type": "cube", "scale": 2.5},
+    {"position": {"x": 0, "y": 5.0, "z": 0}, "color": "#32CD32", "type": "cube", "scale": 2.0},
+    {"position": {"x": 0, "y": 6.0, "z": 0}, "color": "#90EE90", "type": "cube", "scale": 1.5},
+    {"position": {"x": 0, "y": 4.5, "z": 0.8}, "color": "#32CD32", "type": "cube", "scale": 1.0},
+    {"position": {"x": 0.8, "y": 4.5, "z": 0}, "color": "#32CD32", "type": "cube", "scale": 1.0}
+  ]
+}
