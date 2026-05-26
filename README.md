@@ -1,59 +1,61 @@
-# 🌌 Voxel Studios - Portal do Ecossistema
+# 🌌 Voxel Studios: Portal do Ecossistema
 
-Bem-vindo ao **Voxel Studios**, um ecossistema dedicado ao desenvolvimento de ferramentas inovadoras para a criação de arte 3D baseada em voxels. Este repositório centraliza módulos, utilitários e bibliotecas experimentais focados em fluxos de trabalho procedurais e otimização de renderização.
+O **Voxel Studios** é uma suíte criativa experimental focada em unir a estética *voxel art* com técnicas de computação procedural, visão computacional e Inteligência Artificial. Este repositório centraliza um ecossistema modular desenhado para transformar dados brutos em formas volumétricas complexas.
 
-## 🚀 Sobre o Projeto
+---
 
-O Voxel Studios nasce da necessidade de unir a estética clássica do voxel art com técnicas modernas de computação gráfica e inteligência artificial. Nosso objetivo é fornecer ferramentas que reduzam a barreira entre a ideia abstrata e a representação volumétrica 3D, permitindo que artistas e desenvolvedores criem assets complexos de forma rápida e eficiente.
+## 🚀 O Pipeline Criativo
 
-## 🛠 Funcionalidades Principais
+O Voxel Studios não é apenas um conjunto de ferramentas, mas um **fluxo de trabalho integrado**. Cada módulo atua como uma etapa essencial na jornada do dado ao asset 3D final:
 
-* **Editor Procedural:** Ferramentas para geração automática de estruturas voxelizadas.
-* **Arquitetura Modular:** Componentes desacoplados que facilitam a integração em motores de jogos ou pipelines de renderização customizados.
-* **Otimização de Performance:** Algoritmos focados em renderização eficiente, utilizando técnicas como *greedy meshing* e manipulação direta de buffer.
-* **Integração com IA:** (Quando aplicável) Suporte a prompts para geração e modificação de modelos voxelizados.
+| Módulo | Função | Foco |
+| --- | --- | --- |
+| **Camera Projection** | Captura 2D → Projeção 3D | Homografia e extração de texturas |
+| **Depth Inference Lab** | Imagem 2D → Profundidade | Visão computacional e conversão JSON |
+| **Voxel Forge** | Geração via "Receitas Genéticas" | Evolução procedural e caos controlado |
+| **Procedural Studio** | Biblioteca Central (200+ geradores) | Atomização de componentes |
+| **DJ das Texturas** | Curadoria Artística | Prompts IA e composição de texturas |
+| **Voxel Critic** | Refinamento de modelos | Pesquisa experimental e RLHF |
+| **Voxel Genesis** | O Hub Final | Editor 3D, IA e Síntese total |
 
-## 📦 Estrutura do Repositório
+---
 
-```text
-/
-├── assets/          # Modelos de exemplo e texturas
-├── src/             # Código-fonte principal (lógica core)
-├── docs/            # Documentação técnica detalhada
-├── examples/        # Implementações de referência
-└── dist/            # Builds compiladas
+## 🛠 Status das Ferramentas
 
-```
+Monitoramos nosso ecossistema para garantir clareza no desenvolvimento:
 
-## 💻 Tecnologias Utilizadas
+* **Estáveis:** [Lista de ferramentas prontas para produção]
+* **Beta/Experimental:** [Ferramentas em fase de teste, como o Voxel Critic]
+* **Pesquisa:** [Conceitos iniciais e laboratórios de visão]
 
-* **Core:** JavaScript/TypeScript (focado em performance).
-* **Renderização:** Three.js / WebGL.
-* **Build/Tooling:** Vite, Webpack.
+---
 
-## 🤝 Como Contribuir
+## 💡 Visão de Futuro: A Evolução para "Suite"
 
-Este é um projeto de código aberto e colaborações são bem-vindas!
+Estamos trabalhando na unificação do ecossistema. Nosso roadmap foca em:
 
-1. Faça um *fork* do projeto.
-2. Crie uma *branch* para sua feature (`git checkout -b feature/nova-funcionalidade`).
-3. Faça o *commit* das suas alterações (`git commit -m 'Add: nova funcionalidade'`).
-4. Envie para a *branch* (`git push origin feature/nova-funcionalidade`).
-5. Abra um *Pull Request*.
+* **Design System Global:** Coesão visual entre todos os módulos (estética "Lab Futurista").
+* **Navegação Unificada:** Implementação de uma *sidebar* global para trânsito fluido entre as ferramentas.
+* **Formato Nativo .vrx:** Padronização de "Receitas Voxels" que transitam perfeitamente entre o *Forge* e o *Genesis*.
+
+## 📦 Como Instalar e Rodar
+
+*(Adicione aqui os comandos de instalação, ex: `npm install`, `npm run dev`)*
+
+## 🤝 Contribuições
+
+Como este é um ecossistema modular, contribuições são altamente encorajadas. Se você tem um novo algoritmo procedural ou uma ideia para uma nova ferramenta, siga estes passos:
+
+1. Faça um *fork* do repositório.
+2. Crie uma *branch* dedicada à ferramenta (`feature/nome-do-lab`).
+3. Siga a estrutura de pastas existente para manter a coesão.
 
 ## 📄 Licença
 
-Este projeto está licenciado sob a licença [Inserir Licença, ex: MIT].
+Projeto distribuído sob a licença MIT.
 
 ---
 
-**Desenvolvido com paixão pela experimentação técnica.**
-*Conecte-se com a comunidade Voxel Studios e explore o infinito volumétrico.*
+**Explore o infinito volumétrico.**
+[Portal Voxel Studios](https://www.google.com/search?q=https://jjunninho.github.io/)
 
----
-
-### Dicas para o seu README:
-
-1. **Imagens:** Se você tiver GIFs ou screenshots mostrando os voxels sendo gerados em tempo real, adicione-os logo após a seção "Sobre o Projeto". Isso valoriza muito o repositório.
-2. **Badges:** Adicione *badges* de status de build, versão e licença no topo do arquivo para um visual mais profissional.
-3. **Wiki:** Se o projeto crescer, considere linkar uma Wiki externa para documentação detalhada da API.
